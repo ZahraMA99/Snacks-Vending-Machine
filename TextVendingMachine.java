@@ -13,7 +13,7 @@ public class TextVendingMachine implements VendingMachineInterface {
         System.out.println("     SNACK VENDING MACHINE          ");
         System.out.println("           WELCOME          ");
         System.out.println("-----------------------------------");
-        System.out.println("\n *PRODUCTS:\n");
+        System.out.println("\n *PRODUCTS AVILABLE:\n");
         System.out.println("\t   Kind: Price");
         System.out.println("\t-----------------");
         for(Product product: Product.values()){
@@ -22,7 +22,7 @@ public class TextVendingMachine implements VendingMachineInterface {
             }
         }
         System.out.println("-----------------------------------\n");
-        System.out.println(" *Please select your product:");
+        System.out.print(" *Please select your product: ");
 
 
     }

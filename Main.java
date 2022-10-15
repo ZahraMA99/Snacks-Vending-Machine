@@ -3,6 +3,8 @@ package snacksVendingMachine;
 import java.util.Scanner;
 import snacksVendingMachine.TextVendingMachine; 
 import snacksVendingMachine.VendingMachineInterface;
+import snacksVendingMachine.Product;
+
 
 
 public class Main {
@@ -15,7 +17,12 @@ public class Main {
         machineInterface.displayProducts();
 
         String selectedProduct = scanner.nextLine();
-        machineInterface.selectProduct(Integer.parseInt(selectedProduct));
+        for(Product product: Product.values()){
+            if(Integer.parseInt(selectedProduct) == product.getSelectionNumber()) {
+                System.out.println("\t" + " => Price of " + product.name() +" = "+ product.getPrice());
+            }
+        }
+
 
         machineInterface.displayEnterCoinsMessage();
 
