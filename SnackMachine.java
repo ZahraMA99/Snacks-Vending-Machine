@@ -1,18 +1,18 @@
 package snacksVendingMachine;
 
-import java.util.Scanner;
-import snacksVendingMachine.TextVendingMachine; 
+import java.util.Scanner; 
+import snacksVendingMachine.VendingMachineMessages; 
 import snacksVendingMachine.VendingMachineInterface;
 import snacksVendingMachine.Product;
 
 
 
-public class Main {
+public class SnackMachine {
 
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 
-        VendingMachineInterface machineInterface = new TextVendingMachine();
+        VendingMachineInterface machineInterface = new VendingMachineMessages();
         
         machineInterface.displayProducts();
 
@@ -23,13 +23,13 @@ public class Main {
             }
         }
 
-
         machineInterface.displayEnterCoinsMessage();
 
         String userEnteredCoins = scanner.nextLine();
         int[] enteredCoins = Coin.parseCoins(userEnteredCoins);
         machineInterface.enterCoins(enteredCoins);
 
+        machineInterface.selectProduct(Integer.parseInt(selectedProduct));
         machineInterface.displayChangeMessage();
 
     }

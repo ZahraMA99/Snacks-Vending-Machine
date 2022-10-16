@@ -1,6 +1,6 @@
 package snacksVendingMachine;
 
-public class TextVendingMachine implements VendingMachineInterface {
+public class VendingMachineMessages implements VendingMachineInterface {
 
     private VendingMachineController controller = new SimpleVendingMachineController();
     private int selectedProduct;
@@ -31,6 +31,7 @@ public class TextVendingMachine implements VendingMachineInterface {
     public void selectProduct(int product) {
         this.selectedProduct = product;
     }
+    
 
     @Override
     public void displayEnterCoinsMessage() {
@@ -51,24 +52,17 @@ public class TextVendingMachine implements VendingMachineInterface {
     @Override
     public void displayChangeMessage() {
         System.out.println("\n *Your Change is: "+ change.getTotal());
-        for(Product product: Product.values()){
-            if(change.getTotal() - product.getPrice() > 0) {
-                System.out.println(" Return Amount: " + (change.getTotal() - product.getPrice()) + " Successful purchase, Happy Day!");
+        Product product = Product.valueOf(this.selectedProduct);
+        int productPrice = product.getPrice();
+        if((change.getTotal()-product.getPrice()) > 0) {
+                System.out.println("\tReturn Amount= " + (change.getTotal() - product.getPrice()) + ", Successful purchase, Happy Day!");
             }else if(change.getTotal() - product.getPrice() == 0) {
-                System.out.println(" Return Amount: " + (change.getTotal() - product.getPrice()) + " Successful purchase, Happy Day!");
+                System.out.println("\tReturn Amount= " + (change.getTotal() - product.getPrice()) + ", Successful purchase, Happy Day!");
 
             }else {
-                System.out.println(" Money not enough! Enter new amount ..");
+                System.out.println("\tMoney not enough! Enter new amount ..");
             }
         }
-
     }
-}
+    
 
-
-
-//System.out.println("    100 cents coins: "+ change.number100CentsCoins);
-//System.out.println("    50 cents coins: "+ change.number50CentsCoins);
-//System.out.println("    20 cents coins: "+ change.number20CentsCoins);
-//System.out.println("    10 cents coins: "+ change.number10CentsCoins);
-//System.out.println("    5 cents coins: "+ change.number5CentsCoins);
