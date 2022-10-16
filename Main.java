@@ -19,7 +19,7 @@ public class Main {
         String selectedProduct = scanner.nextLine();
         for(Product product: Product.values()){
             if(Integer.parseInt(selectedProduct) == product.getSelectionNumber()) {
-                System.out.println("\t" + " => Price of " + product.name() +" = "+ product.getPrice());
+                System.out.println("\t" + " => Price of " + product.name() +" = "+ product.getPrice() + "\n");
             }
         }
 
